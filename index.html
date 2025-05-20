@@ -3,6 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Structured Parts Group offers ERP, MRP, and BOM structuring and automation consulting for manufacturing teams." />
+  <meta name="keywords" content="ERP, MRP, BOM, manufacturing, automation, consulting" />
   <title>Structured Parts Group</title>
   <style>
     body {
@@ -20,10 +22,15 @@
     main {
       max-width: 800px;
       margin: 2rem auto;
-      padding: 0 1rem;
+      padding: 2rem;
+      background-color: white;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     }
     h1, h2 {
       margin-top: 0;
+    }
+    ul {
+      padding-left: 20px;
     }
     footer {
       text-align: center;
@@ -40,6 +47,10 @@
       text-decoration: none;
       border-radius: 4px;
       margin-top: 1rem;
+      transition: background-color 0.3s ease;
+    }
+    .button:hover {
+      background-color: #155ab2;
     }
   </style>
 </head>
@@ -52,26 +63,29 @@
 
   <main>
     <h2>What We Do</h2>
-    <p>We help manufacturing teams clean, structure, and automate their product data — from part-level configurations to full ERP/MRP integrations.</p>
-    
+    <p>We specialize in helping manufacturing teams streamline their product data management. Our services include:</p>
     <ul>
-      <li>BOM Cleanup & Standardization</li>
-      <li>JDE & ERP Integrations</li>
-      <li>Configuration Logic Design</li>
-      <li>Process Automation & Cost Inquiry Tools</li>
+      <li><strong>BOM Cleanup & Standardization:</strong> Ensuring your Bill of Materials is accurate and consistent.</li>
+      <li><strong>JDE & ERP Integrations:</strong> Seamlessly connecting your systems for better data flow.</li>
+      <li><strong>Configuration Logic Design:</strong> Creating efficient logic for product configurations.</li>
+      <li><strong>Process Automation & Cost Inquiry Tools:</strong> Automating repetitive tasks and providing tools for cost analysis.</li>
     </ul>
 
     <h2>Who We Work With</h2>
-    <p>OEMs, contract manufacturers, and engineering teams across hardware, RF, and access control industries.</p>
+    <p>We partner with OEMs, contract manufacturers, and engineering teams across hardware, RF, and access control industries, tailoring solutions to meet their unique needs.</p>
 
     <h2>Get in Touch</h2>
-    <p>Email: <a href="mailto:yourname@structuredpartsgroup.com">yourname@structuredpartsgroup.com</a></p>
+    <p>Email: <a href="mailto:greg@structuredpartsgroup.com">greg@structuredpartsgroup.com</a></p>
     <a class="button" href="mailto:greg@structuredpartsgroup.com">Contact Us</a>
   </main>
 
   <footer>
-    &copy; 2025 Structured Parts Group
+    &copy; <span id="year"></span> Structured Parts Group
   </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
 
 </body>
 </html>
