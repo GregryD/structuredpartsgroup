@@ -3,89 +3,111 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Structured Parts Group offers ERP, MRP, and BOM structuring and automation consulting for manufacturing teams." />
-  <meta name="keywords" content="ERP, MRP, BOM, manufacturing, automation, consulting" />
-  <title>Structured Parts Group</title>
+  <title>Structured Parts Group | MRP Consulting</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet" />
   <style>
     body {
-      font-family: Arial, sans-serif;
+      font-family: 'Inter', sans-serif;
       margin: 0;
-      background-color: #f8f9fa;
-      color: #333;
+      padding: 0;
+      background: #fff;
+      color: #222;
+      line-height: 1.6;
     }
     header {
-      background-color: #1a73e8;
-      color: white;
       padding: 2rem;
       text-align: center;
+      background-color: #f8f8ff;
     }
-    main {
-      max-width: 800px;
-      margin: 2rem auto;
-      padding: 2rem;
-      background-color: white;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    h1 {
+      font-size: 2rem;
+      font-weight: 800;
     }
-    h1, h2 {
-      margin-top: 0;
+    .hero p {
+      font-size: 1rem;
+      max-width: 700px;
+      margin: 1rem auto;
     }
-    ul {
-      padding-left: 20px;
+    section {
+      padding: 3rem 1rem;
+      max-width: 1000px;
+      margin: auto;
+    }
+    .services {
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .service {
+      flex: 1 1 30%;
+      background: #fafafa;
+      padding: 1.5rem;
+      border-radius: 12px;
+      text-align: center;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    }
+    .service h3 {
+      margin-top: 0.5rem;
+      font-size: 1.2rem;
+    }
+    .about {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+    .about img {
+      width: 120px;
+      border-radius: 50%;
+    }
+    .about-text {
+      flex: 1;
     }
     footer {
       text-align: center;
-      margin-top: 4rem;
-      padding: 1rem;
+      padding: 2rem;
       font-size: 0.9rem;
-      color: #777;
-    }
-    .button {
-      display: inline-block;
-      background-color: #1a73e8;
-      color: white;
-      padding: 0.75rem 1.5rem;
-      text-decoration: none;
-      border-radius: 4px;
-      margin-top: 1rem;
-      transition: background-color 0.3s ease;
-    }
-    .button:hover {
-      background-color: #155ab2;
+      background: #f0f0f0;
     }
   </style>
 </head>
 <body>
-
-  <header>
-    <h1>Structured Parts Group</h1>
-    <p>ERP | MRP | BOM Structuring & Automation Consulting</p>
+  <header class="hero">
+    <h1>Helping Manufacturers Modernize Operations</h1>
+    <p>I specialize in MRP/ERP system setup, BOM management, and data workflows — especially for small to mid-sized teams moving from spreadsheets to platforms like MRPeasy, Katana, and Odoo.</p>
   </header>
 
-  <main>
-    <h2>What We Do</h2>
-    <p>We specialize in helping manufacturing teams streamline their product data management. Our services include:</p>
-    <ul>
-      <li><strong>BOM Cleanup & Standardization:</strong> Ensuring your Bill of Materials is accurate and consistent.</li>
-      <li><strong>JDE & ERP Integrations:</strong> Seamlessly connecting your systems for better data flow.</li>
-      <li><strong>Configuration Logic Design:</strong> Creating efficient logic for product configurations.</li>
-      <li><strong>Process Automation & Cost Inquiry Tools:</strong> Automating repetitive tasks and providing tools for cost analysis.</li>
-    </ul>
+  <section>
+    <h2 style="text-align:center">Services</h2>
+    <div class="services">
+      <div class="service">
+        <h3>MRPeasy Setup</h3>
+        <p>Implementation and configuration of MRPeasy for your manufacturing operations.</p>
+      </div>
+      <div class="service">
+        <h3>BOM Clean Up</h3>
+        <p>Organization and migration of Bills of Materials from Excel into an ERP/MRP platform.</p>
+      </div>
+      <div class="service">
+        <h3>Google Sheets to MRP</h3>
+        <p>Development of workflows to automate and integrate your inventory and production data.</p>
+      </div>
+    </div>
+  </section>
 
-    <h2>Who We Work With</h2>
-    <p>We partner with OEMs, contract manufacturers, and engineering teams across hardware, RF, and access control industries, tailoring solutions to meet their unique needs.</p>
-
-    <h2>Get in Touch</h2>
-    <p>Email: <a href="mailto:greg@structuredpartsgroup.com">greg@structuredpartsgroup.com</a></p>
-    <a class="button" href="mailto:greg@structuredpartsgroup.com">Contact Us</a>
-  </main>
+  <section>
+    <h2 style="text-align:center">About</h2>
+    <div class="about">
+      <img src="https://via.placeholder.com/120" alt="Consultant photo">
+      <div class="about-text">
+        <p>I provide consulting services for manufacturers who are looking to implement ERP/MRP systems or optimize their Bills of Materials. With several years of experience, I understand the challenges of modernizing operations from older systems and manual processes.</p>
+      </div>
+    </div>
+  </section>
 
   <footer>
-    &copy; <span id="year"></span> Structured Parts Group
+    &copy; 2025 Structured Parts Group. All rights reserved.
   </footer>
-
-  <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
-  </script>
-
 </body>
 </html>
