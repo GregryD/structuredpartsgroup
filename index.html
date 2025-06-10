@@ -1,108 +1,196 @@
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Structured Parts Group | MRP Consulting</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet" />
+  <meta name="description" content="Structured Parts Group provides expert MRP/ERP consulting for manufacturers, specializing in system setup, BOM management, and data workflow automation." />
+  <meta name="keywords" content="MRP consulting, ERP implementation, BOM management, manufacturing software, MRPeasy, Katana, Odoo" />
+  <meta name="author" content="Structured Parts Group" />
+  <title>Structured Parts Group | MRP & ERP Consulting</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet" />
   <style>
-    body {
-      font-family: 'Inter', sans-serif;
+    * {
+      box-sizing: border-box;
       margin: 0;
       padding: 0;
-      background: #fff;
-      color: #222;
-      line-height: 1.6;
+    }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #ffffff;
+      color: #1a1a1a;
+      line-height: 1.7;
+      font-size: 16px;
     }
     header {
-      padding: 2rem;
+      background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+      color: #ffffff;
       text-align: center;
-      background-color: #f8f8ff;
+      padding: 4rem 2rem;
     }
-    h1 {
-      font-size: 2rem;
+    header h1 {
+      font-size: 2.5rem;
       font-weight: 800;
+      margin-bottom: 1rem;
     }
-    .hero p {
-      font-size: 1rem;
-      max-width: 700px;
-      margin: 1rem auto;
+    header p {
+      font-size: 1.25rem;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .cta-button {
+      display: inline-block;
+      margin-top: 1.5rem;
+      padding: 0.75rem 1.5rem;
+      background: #ffffff;
+      color: #1e3a8a;
+      font-weight: 600;
+      text-decoration: none;
+      border-radius: 8px;
+      transition: background 0.3s, color 0.3s;
+    }
+    .cta-button:hover {
+      background: #e5e7eb;
+      color: #1e3a8a;
     }
     section {
-      padding: 3rem 1rem;
-      max-width: 1000px;
-      margin: auto;
+      padding: 4rem 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    h2 {
+      font-size: 2rem;
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 2rem;
+      color: #1e3a8a;
     }
     .services {
-      display: flex;
-      justify-content: space-around;
-      flex-wrap: wrap;
-      gap: 1rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
     }
     .service {
-      flex: 1 1 30%;
-      background: #fafafa;
-      padding: 1.5rem;
+      background: #f8fafc;
+      padding: 2rem;
       border-radius: 12px;
       text-align: center;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .service:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
     }
     .service h3 {
-      margin-top: 0.5rem;
-      font-size: 1.2rem;
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: #1e3a8a;
+      margin-bottom: 1rem;
+    }
+    .service p {
+      font-size: 1rem;
+      color: #4b5563;
     }
     .about {
       display: flex;
       align-items: center;
       gap: 2rem;
       flex-wrap: wrap;
+      background: #f8fafc;
+      padding: 2rem;
+      border-radius: 12px;
     }
     .about img {
-      width: 120px;
+      width: 150px;
+      height: 150px;
       border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid #ffffff;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     }
     .about-text {
       flex: 1;
+      min-width: 300px;
+    }
+    .about-text p {
+      font-size: 1.1rem;
+      color: #4b5563;
+    }
+    .contact {
+      text-align: center;
+      background: #1e3a8a;
+      color: #ffffff;
+      padding: 3rem 2rem;
+      border-radius: 12px;
+    }
+    .contact p {
+      font-size: 1.1rem;
+      margin-bottom: 1.5rem;
     }
     footer {
       text-align: center;
       padding: 2rem;
+      background: #f1f5f9;
+      color: #4b5563;
       font-size: 0.9rem;
-      background: #f0f0f0;
+    }
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 2rem;
+      }
+      header p {
+        font-size: 1rem;
+      }
+      .services {
+        grid-template-columns: 1fr;
+      }
+      .about {
+        flex-direction: column;
+        text-align: center;
+      }
     }
   </style>
 </head>
 <body>
-  <header class="hero">
-    <h1>Helping Manufacturers Modernize Operations</h1>
-    <p>I specialize in MRP/ERP system setup, BOM management, and data workflows — especially for small to mid-sized teams moving from spreadsheets to platforms like MRPeasy, Katana, and Odoo.</p>
+  <header>
+    <h1>Structured Parts Group</h1>
+    <p>Empowering manufacturers with expert MRP/ERP system implementation, BOM optimization, and seamless data workflows for modern operations.</p>
+    <a href="mailto:contact@structuredpartsgroup.com" class="cta-button">Get in Touch</a>
   </header>
 
   <section>
-    <h2 style="text-align:center">Services</h2>
+    <h2>Our Services</h2>
     <div class="services">
       <div class="service">
-        <h3>MRPeasy Setup</h3>
-        <p>Implementation and configuration of MRPeasy for your manufacturing operations.</p>
+        <h3>MRPeasy Implementation</h3>
+        <p>Streamlined setup and configuration of MRPeasy to optimize your manufacturing processes, tailored to your business needs.</p>
       </div>
       <div class="service">
-        <h3>BOM Clean Up</h3>
-        <p>Organization and migration of Bills of Materials from Excel into an ERP/MRP platform.</p>
+        <h3>BOM Optimization</h3>
+        <p>Expert organization and migration of Bills of Materials from Excel to ERP/MRP platforms for accuracy and efficiency.</p>
       </div>
       <div class="service">
-        <h3>Google Sheets to MRP</h3>
-        <p>Development of workflows to automate and integrate your inventory and production data.</p>
+        <h3>Data Workflow Automation</h3>
+        <p>Custom solutions to automate inventory and production data, integrating Google Sheets with MRP systems like Katana and Odoo.</p>
       </div>
     </div>
   </section>
 
   <section>
-    <h2 style="text-align:center">About</h2>
+    <h2>About Us</h2>
     <div class="about">
-      <img src="https://github.com/GregryD/structuredpartsgroup/blob/1220a86d4963c48cc95dc74714b872cb0dc90568/Screenshot%202025-06-10%20072059.png" alt="Consultant photo">
+      <img src="https://raw.githubusercontent.com/GregryD/structuredpartsgroup/main/Screenshot%202025-06-10%20072059.png" alt="Consultant headshot" onerror="this.src='https://via.placeholder.com/150';">
       <div class="about-text">
-        <p>I provide consulting services for manufacturers who are looking to implement ERP/MRP systems or optimize their Bills of Materials. With several years of experience, I understand the challenges of modernizing operations from older systems and manual processes.</p>
+        <p>At Structured Parts Group, we specialize in helping small to mid-sized manufacturers transition from manual processes to modern MRP/ERP systems. With years of experience in system implementation and process optimization, we understand the unique challenges of modernizing manufacturing operations. Our goal is to deliver tailored solutions that enhance efficiency, reduce errors, and drive growth.</p>
       </div>
     </div>
+  </section>
+
+  <section class="contact">
+    <h2>Contact Us</h2>
+    <p>Ready to modernize your manufacturing operations? Reach out to discuss how we can support your business with expert MRP/ERP consulting.</p>
+    <a href="mailto:greg@structuredpartsgroup.com" class="cta-button">Contact Now</a>
   </section>
 
   <footer>
@@ -110,4 +198,3 @@
   </footer>
 </body>
 </html>
-
