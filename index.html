@@ -3,198 +3,714 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Structured Parts Group provides expert MRP/ERP consulting for manufacturers, specializing in system setup, BOM management, and data workflow automation." />
-  <meta name="keywords" content="MRP consulting, ERP implementation, BOM management, manufacturing software, MRPeasy, Katana, Odoo" />
-  <meta name="author" content="Structured Parts Group" />
-  <title>Structured Parts Group | MRP & ERP Consulting</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <title>Natalie Rose Cake Boutique</title>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Josefin+Sans:wght@300;400;600&family=Lato:wght@300;400;700&display=swap" rel="stylesheet" />
   <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy:   #1B2A4A;
+      --gold:   #B8986A;
+      --light:  #F5F5F5;
+      --white:  #FFFFFF;
+      --text:   #2C2C2C;
+      --mid:    #555555;
+      --border: #D9D9D9;
     }
+
+    html { scroll-behavior: smooth; }
+
     body {
-      font-family: 'Inter', sans-serif;
-      background: #ffffff;
-      color: #1a1a1a;
+      background: var(--white);
+      color: var(--text);
+      font-family: 'Lato', sans-serif;
+      font-weight: 300;
       line-height: 1.7;
-      font-size: 16px;
     }
-    header {
-      background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
-      color: #ffffff;
-      text-align: center;
-      padding: 4rem 2rem;
-    }
-    header h1 {
-      font-size: 2.5rem;
-      font-weight: 800;
-      margin-bottom: 1rem;
-    }
-    header p {
-      font-size: 1.25rem;
-      max-width: 800px;
-      margin: 0 auto;
-    }
-    .cta-button {
-      display: inline-block;
-      margin-top: 1.5rem;
-      padding: 0.75rem 1.5rem;
-      background: #ffffff;
-      color: #1e3a8a;
-      font-weight: 600;
-      text-decoration: none;
-      border-radius: 8px;
-      transition: background 0.3s, color 0.3s;
-    }
-    .cta-button:hover {
-      background: #e5e7eb;
-      color: #1e3a8a;
-    }
-    section {
-      padding: 4rem 2rem;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-    h2 {
-      font-size: 2rem;
-      font-weight: 700;
-      text-align: center;
-      margin-bottom: 2rem;
-      color: #1e3a8a;
-    }
-    .services {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 2rem;
-      margin-top: 2rem;
-    }
-    .service {
-      background: #f8fafc;
-      padding: 2rem;
-      border-radius: 12px;
-      text-align: center;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-      transition: transform 0.3s, box-shadow 0.3s;
-    }
-    .service:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
-    }
-    .service h3 {
-      font-size: 1.5rem;
-      font-weight: 600;
-      color: #1e3a8a;
-      margin-bottom: 1rem;
-    }
-    .service p {
-      font-size: 1rem;
-      color: #4b5563;
-    }
-    .about {
+
+    /* ── TOP BAR ── */
+    .top-bar {
+      background: var(--white);
+      border-bottom: 1px solid var(--border);
+      padding: 0.4rem 2rem;
       display: flex;
       align-items: center;
-      gap: 2rem;
-      flex-wrap: wrap;
-      background: #f8fafc;
-      padding: 2rem;
-      border-radius: 12px;
+      gap: 0.5rem;
     }
-    .about img {
-      width: 150px;
-      height: 150px;
+
+    .nut-free-badge {
+      width: 52px;
+      height: 52px;
       border-radius: 50%;
-      object-fit: cover;
-      border: 3px solid #ffffff;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    }
-    .about-text {
-      flex: 1;
-      min-width: 300px;
-    }
-    .about-text p {
-      font-size: 1.1rem;
-      color: #4b5563;
-    }
-    .contact {
+      border: 3px solid var(--navy);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Josefin Sans', sans-serif;
+      font-size: 0.45rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--navy);
+      line-height: 1.2;
       text-align: center;
-      background: #1e3a8a;
-      color: #ffffff;
-      padding: 3rem 2rem;
-      border-radius: 12px;
+      flex-shrink: 0;
     }
-    .contact p {
-      font-size: 1.1rem;
-      margin-bottom: 1.5rem;
+
+    .nut-free-badge .big { font-size: 0.65rem; font-weight: 700; }
+
+    /* ── NAV ── */
+    nav {
+      background: var(--white);
+      border-bottom: 2px solid var(--border);
+      padding: 0 2rem;
     }
-    footer {
+
+    .nav-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .nav-logo {
+      padding: 1rem 0 0.4rem;
       text-align: center;
-      padding: 2rem;
-      background: #f1f5f9;
-      color: #4b5563;
+    }
+
+    .nav-logo .script {
+      font-family: 'Great Vibes', cursive;
+      font-size: 3rem;
+      color: var(--gold);
+      line-height: 1;
+      display: block;
+    }
+
+    .nav-logo .subtitle {
+      font-family: 'Josefin Sans', sans-serif;
+      font-size: 0.62rem;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: var(--navy);
+      display: block;
+      margin-top: 0.1rem;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 0;
+      list-style: none;
+      border-top: 1px solid var(--border);
+      width: 100%;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .nav-links li a {
+      display: block;
+      padding: 0.65rem 1.2rem;
+      font-family: 'Josefin Sans', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 400;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--navy);
+      text-decoration: none;
+      transition: color 0.2s, background 0.2s;
+    }
+
+    .nav-links li a:hover {
+      color: var(--gold);
+      background: var(--light);
+    }
+
+    /* ── HERO BANNER ── */
+    .hero-banner {
+      background: var(--navy);
+      color: var(--white);
+      text-align: center;
+      padding: 3.5rem 2rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Decorative arch shapes like the original */
+    .hero-banner::before,
+    .hero-banner::after {
+      content: '';
+      position: absolute;
+      top: -20px;
+      width: 120px;
+      height: 200px;
+      border-radius: 60px 60px 0 0;
+      background: rgba(255,255,255,0.05);
+    }
+
+    .hero-banner::before { left: 40px; }
+    .hero-banner::after  { right: 40px; }
+
+    .hero-banner h1 {
+      font-family: 'Josefin Sans', sans-serif;
+      font-size: clamp(1.6rem, 4vw, 2.8rem);
+      font-weight: 300;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--white);
+      margin-bottom: 0.75rem;
+      position: relative;
+    }
+
+    .hero-banner p {
       font-size: 0.9rem;
+      color: rgba(255,255,255,0.75);
+      max-width: 580px;
+      margin: 0 auto 1.5rem;
+      position: relative;
     }
+
+    .hero-banner .btn {
+      display: inline-block;
+      padding: 0.75rem 2rem;
+      border: 1px solid rgba(255,255,255,0.5);
+      color: var(--white);
+      font-family: 'Josefin Sans', sans-serif;
+      font-size: 0.7rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: background 0.2s, border-color 0.2s;
+      position: relative;
+    }
+
+    .hero-banner .btn:hover {
+      background: rgba(255,255,255,0.12);
+      border-color: var(--white);
+    }
+
+    /* ── PHOTO GRID ── */
+    .photo-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0;
+    }
+
+    .photo-grid-item {
+      aspect-ratio: 4/3;
+      overflow: hidden;
+      position: relative;
+      background: var(--light);
+    }
+
+    .photo-grid-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.4s ease;
+    }
+
+    .photo-grid-item:hover img { transform: scale(1.04); }
+
+    /* ── IMAGE PLACEHOLDER ── */
+    .img-placeholder {
+      width: 100%;
+      height: 100%;
+      min-height: 220px;
+      background: #EEE8E0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: var(--gold);
+      gap: 0.6rem;
+      border: 2px dashed #D4C9B8;
+    }
+
+    .img-placeholder svg { opacity: 0.45; }
+
+    .img-placeholder span {
+      font-family: 'Josefin Sans', sans-serif;
+      font-size: 0.65rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      opacity: 0.65;
+      text-align: center;
+      padding: 0 1rem;
+    }
+
+    /* ── WELCOME TEXT ── */
+    .welcome {
+      text-align: center;
+      padding: 3.5rem 2rem;
+      max-width: 760px;
+      margin: 0 auto;
+    }
+
+    .welcome p {
+      font-size: 1.05rem;
+      color: var(--navy);
+      line-height: 1.85;
+      margin-bottom: 0.75rem;
+    }
+
+    .welcome .tagline {
+      font-weight: 700;
+      font-style: italic;
+      color: var(--navy);
+    }
+
+    /* ── DIVIDER ── */
+    .divider {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 0 2rem;
+    }
+
+    /* ── TESTIMONIALS ── */
+    .testimonials {
+      background: var(--white);
+      padding: 3rem 2rem 4rem;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .testimonials h2 {
+      font-family: 'Josefin Sans', sans-serif;
+      font-size: 1.4rem;
+      font-weight: 300;
+      color: var(--navy);
+      margin-bottom: 2.5rem;
+      letter-spacing: 0.02em;
+    }
+
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2.5rem;
+    }
+
+    .testimonial-item {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .testimonial-item .cake-photo {
+      aspect-ratio: 4/3;
+      overflow: hidden;
+      border-radius: 2px;
+      background: var(--light);
+      position: relative;
+    }
+
+    .testimonial-item .cake-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .testimonial-item blockquote {
+      font-size: 0.88rem;
+      color: var(--mid);
+      line-height: 1.75;
+      font-style: italic;
+    }
+
+    .testimonial-item cite {
+      font-size: 0.78rem;
+      font-weight: 700;
+      font-style: normal;
+      color: var(--navy);
+      letter-spacing: 0.04em;
+    }
+
+    /* ── FOOTER SOCIAL ── */
+    footer {
+      background: var(--navy);
+      padding: 2rem;
+      text-align: center;
+    }
+
+    .social-row {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-bottom: 1.25rem;
+    }
+
+    .social-link {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      text-decoration: none;
+      font-family: 'Josefin Sans', sans-serif;
+      font-weight: 700;
+      font-size: 0.65rem;
+      letter-spacing: 0.05em;
+      transition: transform 0.2s, opacity 0.2s;
+    }
+
+    .social-link:hover { transform: scale(1.1); opacity: 0.85; }
+
+    .social-yelp       { background: #D32323; color: #fff; }
+    .social-facebook   { background: #1877F2; color: #fff; }
+    .social-instagram  { background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%); color: #fff; }
+    .social-icing      { background: #fff; color: var(--navy); font-size: 0.5rem; text-align: center; }
+
+    .social-link svg { width: 22px; height: 22px; fill: #fff; }
+
+    footer p {
+      color: rgba(255,255,255,0.5);
+      font-size: 0.75rem;
+      letter-spacing: 0.06em;
+    }
+
+    footer a { color: var(--gold); text-decoration: none; }
+
+    /* ── CONTACT SECTION ── */
+    #contact {
+      background: var(--light);
+      padding: 4rem 2rem;
+    }
+
+    .contact-inner {
+      max-width: 700px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .contact-inner h2 {
+      font-family: 'Great Vibes', cursive;
+      font-size: 2.8rem;
+      color: var(--gold);
+      margin-bottom: 0.5rem;
+    }
+
+    .contact-inner .sub {
+      font-family: 'Josefin Sans', sans-serif;
+      font-size: 0.65rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--navy);
+      margin-bottom: 2rem;
+    }
+
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      text-align: left;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    .form-group { display: flex; flex-direction: column; gap: 0.35rem; }
+
+    .form-group label {
+      font-family: 'Josefin Sans', sans-serif;
+      font-size: 0.65rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--navy);
+    }
+
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+      background: var(--white);
+      border: 1px solid var(--border);
+      color: var(--text);
+      padding: 0.7rem 1rem;
+      font-family: 'Lato', sans-serif;
+      font-size: 0.9rem;
+      border-radius: 0;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus,
+    .form-group select:focus { border-color: var(--navy); }
+
+    .form-group textarea { resize: vertical; min-height: 120px; }
+
+    .btn-navy {
+      align-self: center;
+      padding: 0.85rem 2.5rem;
+      background: var(--navy);
+      color: var(--white);
+      font-family: 'Josefin Sans', sans-serif;
+      font-size: 0.72rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      border: none;
+      cursor: pointer;
+      transition: background 0.2s;
+      border-radius: 0;
+    }
+
+    .btn-navy:hover { background: var(--gold); }
+
+    /* ── RESPONSIVE ── */
     @media (max-width: 768px) {
-      header h1 {
-        font-size: 2rem;
-      }
-      header p {
-        font-size: 1rem;
-      }
-      .services {
-        grid-template-columns: 1fr;
-      }
-      .about {
-        flex-direction: column;
-        text-align: center;
-      }
+      .nav-links li a { padding: 0.5rem 0.75rem; font-size: 0.62rem; }
+      .photo-grid { grid-template-columns: 1fr; }
+      .testimonials-grid { grid-template-columns: 1fr; }
+      .form-row { grid-template-columns: 1fr; }
+      nav { padding: 0 1rem; }
     }
   </style>
 </head>
 <body>
-  <header>
-    <h1>Structured Parts Group</h1>
-    <p>Empowering manufacturers with expert MRP/ERP system implementation, BOM optimization, and seamless data workflows for modern operations.</p>
-    <a href="mailto:greg@structuredpartsgroup.com" class="cta-button">Get in Touch</a>
-  </header>
 
-  <section>
-    <h2>Our Services</h2>
-    <div class="services">
-      <div class="service">
-        <h3>Odoo Implementation</h3>
-        <p>Streamlined setup and configuration of Odoo to optimize your manufacturing processes, tailored to your business needs.</p>
+  <!-- TOP BAR with Nut Free badge -->
+  <div class="top-bar">
+    <div class="nut-free-badge">
+      <span class="big">NUT</span>
+      <span>FREE</span>
+    </div>
+  </div>
+
+  <!-- NAV -->
+  <nav>
+    <div class="nav-inner">
+      <div class="nav-logo">
+        <span class="script">natalie rose</span>
+        <span class="subtitle">Cake Boutique</span>
       </div>
-      <div class="service">
-        <h3>BOM Optimization</h3>
-        <p>Expert organization and migration of Bills of Materials from Excel to ERP/MRP platforms for accuracy and efficiency.</p>
-      </div>
-      <div class="service">
-        <h3>Data Workflow Automation</h3>
-        <p>Custom solutions to automate inventory and production data, integrating Google Sheets with MRP systems like Katana and Odoo.</p>
+      <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#menu">Menu &amp; Pricing</a></li>
+        <li><a href="#classes">Classes &amp; Events</a></li>
+        <li><a href="#photos">Photos</a></li>
+        <li><a href="#contact">Request Quote</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- HERO BANNER -->
+  <div class="hero-banner" id="home">
+    <h1>Welcome to Natalie Rose Cake Boutique</h1>
+    <p>Each cake, cookie, and cupcake is custom made just for you — using only the freshest ingredients.</p>
+    <a href="#contact" class="btn">Request a Quote</a>
+  </div>
+
+  <!-- PHOTO GRID (3 hero cake photos) -->
+  <div class="photo-grid" id="photos">
+
+    <!-- REPLACE: <img src="cake-wedding.jpg" alt="Wedding cake" style="width:100%;height:100%;object-fit:cover;" /> -->
+    <div class="photo-grid-item">
+      <div class="img-placeholder">
+        <svg viewBox="0 0 24 24" width="40" height="40" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+        <span>Cake photo 1<br/>(e.g. wedding cake)</span>
       </div>
     </div>
-  </section>
 
-  <section>
-    <h2>About Us</h2>
-    <div class="about">
-      <img src="https://raw.githubusercontent.com/GregryD/structuredpartsgroup/main/Screenshot%202025-06-10%20072059.png" alt="Consultant headshot" onerror="this.src='https://via.placeholder.com/150';">
-      <div class="about-text">
-        <p>At Structured Parts Group, we specialize in helping small to mid-sized manufacturers transition from manual processes to modern MRP/ERP systems. With years of experience in system implementation and process optimization, we understand the unique challenges of modernizing manufacturing operations. Our goal is to deliver tailored solutions that enhance efficiency, reduce errors, and drive growth.</p>
+    <!-- REPLACE: <img src="cake-gucci.jpg" alt="Gucci cake" style="width:100%;height:100%;object-fit:cover;" /> -->
+    <div class="photo-grid-item">
+      <div class="img-placeholder">
+        <svg viewBox="0 0 24 24" width="40" height="40" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+        <span>Cake photo 2<br/>(e.g. novelty cake)</span>
       </div>
     </div>
-  </section>
 
-  <section class="contact">
-    <h2>Contact Us</h2>
-    <p>Ready to modernize your manufacturing operations? Reach out to discuss how we can support your business with expert MRP/ERP consulting.</p>
-    <a href="mailto:greg@structuredpartsgroup.com" class="cta-button">Contact Now</a>
-  </section>
+    <!-- REPLACE: <img src="cake-tiered.jpg" alt="Tiered cake" style="width:100%;height:100%;object-fit:cover;" /> -->
+    <div class="photo-grid-item">
+      <div class="img-placeholder">
+        <svg viewBox="0 0 24 24" width="40" height="40" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+        <span>Cake photo 3<br/>(e.g. tiered cake)</span>
+      </div>
+    </div>
 
+  </div>
+
+  <!-- WELCOME TEXT -->
+  <div class="welcome" id="about">
+    <p>Welcome to Cakes by Natalie Rose, the only cake studio you need to call!
+    Each cake, cookie, and cupcake is custom made just for you. Using only the
+    freshest ingredients, we take your ideas, personality, and celebration theme
+    and turn them into your personalized creation.</p>
+    <p class="tagline">"If you can think it, we can make it."</p>
+  </div>
+
+  <hr class="divider" />
+
+  <!-- TESTIMONIALS -->
+  <div class="testimonials">
+    <h2>What people are saying.......</h2>
+    <div class="testimonials-grid">
+
+      <!-- TESTIMONIAL 1 -->
+      <div class="testimonial-item">
+        <div class="cake-photo">
+          <!-- REPLACE: <img src="cake-tiffany.jpg" alt="Tiffany box cake" /> -->
+          <div class="img-placeholder" style="min-height:180px;">
+            <svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+            <span>Testimonial cake photo</span>
+          </div>
+        </div>
+        <blockquote>"I can't say enough great things about my experience with The Cakery. I helped my friend's husband plan her 50th birthday party. I wanted the cake to be a giant Tiffany Box. The cake was an absolute sensation both in appearance &amp; taste. The price was definitely fair."</blockquote>
+        <cite>— Marysue</cite>
+      </div>
+
+      <!-- TESTIMONIAL 2 -->
+      <div class="testimonial-item">
+        <div class="cake-photo">
+          <!-- REPLACE: <img src="cake-baseball.jpg" alt="Baseball themed cake" /> -->
+          <div class="img-placeholder" style="min-height:180px;">
+            <svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+            <span>Testimonial cake photo</span>
+          </div>
+        </div>
+        <blockquote>"Natalie Rose is incredible! We contacted The Cakery for my daughter's birthday requesting a rather elaborate custom cake. She delivered on all points; it was as beautiful as it was delicious! The Cakery is reliable, talented, very easy to work with and creates edible art!"</blockquote>
+        <cite>— Kate</cite>
+      </div>
+
+      <!-- TESTIMONIAL 3 -->
+      <div class="testimonial-item">
+        <div class="cake-photo">
+          <!-- REPLACE: <img src="cake-wedding-dress.jpg" alt="Wedding dress cake" /> -->
+          <div class="img-placeholder" style="min-height:180px;">
+            <svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+            <span>Testimonial cake photo</span>
+          </div>
+        </div>
+        <blockquote>"Natalie makes the most elegant and creative cakes! She made a NY rangers groom's cake for our rehearsal dinner and the cake for my bridal shower. She also made the cake for my dad's 60th birthday party. I definitely recommend her cakes for any occasion!"</blockquote>
+        <cite>— Patricia</cite>
+      </div>
+
+      <!-- TESTIMONIAL 4 -->
+      <div class="testimonial-item">
+        <div class="cake-photo">
+          <!-- REPLACE: <img src="cake-thomas.jpg" alt="Thomas the train cake" /> -->
+          <div class="img-placeholder" style="min-height:180px;">
+            <svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+            <span>Testimonial cake photo</span>
+          </div>
+        </div>
+        <blockquote>"Natalie made my 3 yr old the most amazing Thomas train birthday cake. She was very patient, took my ideas, took pictures and made the exactly as I had imagined! And it tasted just right, not too sweet, not too hard… was moist and melted in my mouth!"</blockquote>
+        <cite>— Deepti</cite>
+      </div>
+
+      <!-- TESTIMONIAL 5 -->
+      <div class="testimonial-item">
+        <div class="cake-photo">
+          <!-- REPLACE: <img src="cake-stars.jpg" alt="You are our sun cake" /> -->
+          <div class="img-placeholder" style="min-height:180px;">
+            <svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+            <span>Testimonial cake photo</span>
+          </div>
+        </div>
+        <blockquote>"This is the first review I have ever written but I felt that Natalie Rose was more than deserving of one. She was so attentive over text with any questions I had. I will continue to use her and spread the word about her talents and abilities. My mom absolutely loved her Mother's Day cake!"</blockquote>
+        <cite>— Marley</cite>
+      </div>
+
+      <!-- TESTIMONIAL 6 -->
+      <div class="testimonial-item">
+        <div class="cake-photo">
+          <!-- REPLACE: <img src="cake-cinderella.jpg" alt="Cinderella slipper cake" /> -->
+          <div class="img-placeholder" style="min-height:180px;">
+            <svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+            <span>Testimonial cake photo</span>
+          </div>
+        </div>
+        <blockquote>"Natalie Rose did it again! A spectacular Cinderella slipper cake on a cushion. My daughter was in raptures. I wish we had some more birthdays coming up!"</blockquote>
+        <cite>— Virginia</cite>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- CONTACT / REQUEST QUOTE -->
+  <div id="contact">
+    <div class="contact-inner">
+      <h2>Request a Quote</h2>
+      <p class="sub">Cake Boutique</p>
+
+      <!-- Netlify: add netlify attribute when deploying. For other hosts replace action="#" with Formspree URL -->
+      <form class="contact-form" name="quote" method="POST" action="#" netlify>
+        <input type="hidden" name="form-name" value="quote" />
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="name">Your Name</label>
+            <input type="text" id="name" name="name" placeholder="Jane Smith" required />
+          </div>
+          <div class="form-group">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" placeholder="jane@email.com" required />
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" name="phone" placeholder="(555) 000-0000" />
+          </div>
+          <div class="form-group">
+            <label for="date">Event Date</label>
+            <input type="date" id="date" name="date" />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="occasion">Occasion</label>
+          <select id="occasion" name="occasion">
+            <option value="">Select an occasion...</option>
+            <option>Wedding</option>
+            <option>Birthday</option>
+            <option>Baby Shower</option>
+            <option>Bridal Shower</option>
+            <option>Anniversary</option>
+            <option>Corporate Event</option>
+            <option>Other</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="message">Describe your cake</label>
+          <textarea id="message" name="message" placeholder="Tell me your vision — size, flavours, colours, theme, any inspiration images..."></textarea>
+        </div>
+
+        <button type="submit" class="btn-navy">Send Request</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
   <footer>
-    &copy; 2025 Structured Parts Group. All rights reserved.
+    <div class="social-row">
+      <!-- Yelp -->
+      <a href="https://www.yelp.com" class="social-link social-yelp" target="_blank" title="Yelp">
+        <svg viewBox="0 0 24 24"><path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm-1.09 14.907l-2.91-1.04c-.33-.12-.45-.52-.24-.8l2.14-2.86c.21-.28.62-.27.82.02l.77 1.09c.09.13.1.3.02.44l-.59 1.06.62 1.52c.12.29-.04.61-.34.59l-.28-.02zm4.54.97c-.08.32-.42.5-.72.36l-2.91-1.38c-.3-.14-.4-.51-.21-.78l2.62-3.65c.19-.27.57-.3.8-.06l.54.55c.11.11.15.27.1.42l-.42 1.14.09 1.65c.02.32-.27.58-.59.52l-.01-.01.71 1.24zm.95-7.81l-3.65-.55c-.34-.05-.55-.41-.41-.73l.66-1.6c.13-.31.5-.44.79-.27l3.03 1.72c.3.17.36.57.12.82l-.54.61zm-7.43-1.22c.17-.3.55-.4.82-.21l1.55 1.02c.28.18.33.57.11.82l-2.32 2.63c-.22.25-.62.22-.8-.06l-.43-.67c-.08-.13-.1-.29-.04-.44l.78-1.81-.48-.47c-.23-.23-.21-.61.04-.81l.77-.01z"/></svg>
+      </a>
+      <!-- Facebook -->
+      <a href="https://www.facebook.com" class="social-link social-facebook" target="_blank" title="Facebook">
+        <svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+      </a>
+      <!-- Instagram -->
+      <a href="https://www.instagram.com" class="social-link social-instagram" target="_blank" title="Instagram">
+        <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z" fill="none" stroke="#fff" stroke-width="2"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5" stroke="#fff" stroke-width="2"/></svg>
+      </a>
+      <!-- Icing Smiles -->
+      <a href="https://www.icingsmiles.org" class="social-link social-icing" target="_blank" title="Icing Smiles">
+        <span style="font-family:'Josefin Sans',sans-serif;font-size:0.42rem;font-weight:700;color:var(--navy);line-height:1.2;text-align:center;">ICING<br>SMILES</span>
+      </a>
+    </div>
+    <p>© 2026 Natalie Rose Cake Boutique · All rights reserved · <a href="mailto:natalie@natalierosecakes.com">natalie@natalierosecakes.com</a></p>
   </footer>
+
 </body>
 </html>
