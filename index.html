@@ -108,8 +108,20 @@
     .testimonials-wrap h2 { font-family:'Josefin Sans',sans-serif; font-size:1.3rem; font-weight:300; color:var(--navy); margin-bottom:2rem; }
     .test-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:2rem; }
     .test-item { display:flex; flex-direction:column; gap:0.9rem; }
-    .test-photo { aspect-ratio:4/3; overflow:hidden; border-radius:1px; background:var(--light); position:relative; }
-    .test-photo img { width:100%; height:100%; object-fit:cover; }
+    .test-photo {
+      border-radius:1px;
+      background:var(--light);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+    .test-photo img {
+      width:100%;
+      height:auto;
+      object-fit:contain;
+      display:block;
+    }
+    .test-photo .img-ph { width:100%; min-height:170px; }
     .test-item blockquote { font-size:0.85rem; color:var(--mid); line-height:1.8; font-style:italic; }
     .test-item cite { font-size:0.75rem; font-weight:700; font-style:normal; color:var(--navy); }
 
@@ -231,14 +243,9 @@
     /* ── FOOTER ── */
     footer { background:var(--white); border-top:1px solid var(--border); padding:1.5rem 2rem; text-align:center; }
     .social-row { display:flex; justify-content:center; align-items:center; gap:0.75rem; flex-wrap:wrap; margin-bottom:0.9rem; }
-    .social-link { width:42px; height:42px; border-radius:50%; display:flex; align-items:center; justify-content:center; text-decoration:none; transition:transform 0.2s, opacity 0.2s; flex-shrink:0; }
+    .social-link { width:48px; height:48px; border-radius:50%; display:flex; align-items:center; justify-content:center; text-decoration:none; transition:transform 0.2s, opacity 0.2s; flex-shrink:0; background:transparent; border:none; padding:0; }
     .social-link:hover { transform:scale(1.1); opacity:0.85; }
-    .s-yelp { background:#D32323; }
-    .s-fb   { background:#1877F2; }
-    .s-ig   { background:radial-gradient(circle at 30% 107%,#fdf497 0%,#fd5949 45%,#d6249f 60%,#285AEB 90%); }
-    .social-link.social-logo { width:48px; height:48px; background:transparent; border:none; padding:0; }
-    .social-link svg { width:20px; height:20px; fill:#fff; }
-    .social-link.social-logo img { width:100%; height:100%; object-fit:contain; display:block; border-radius:50%; }
+    .social-link img { width:100%; height:100%; object-fit:contain; display:block; border-radius:50%; }
     footer p { font-size:0.73rem; color:var(--mid); }
     footer a { color:var(--navy); text-decoration:none; }
 
@@ -262,10 +269,6 @@
 </head>
 <body>
 
-<!-- TOP BAR -->
-<div class="top-bar">
-  <div class="nut-free-badge"><img src="images/images.png" alt="Nut free"></div>
-</div>
 
 <!-- NAV -->
 <nav>
@@ -316,31 +319,31 @@
       </div>
 
       <div class="test-item">
-        <div class="test-photo"><div class="img-ph" style="min-height:170px;"><svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg><span>Dentist themed cake</span></div></div>
+        <div class="test-photo"><img src="images/tooth_cake.png" alt="Dentist Themed Cake"></div>
         <blockquote>"I could not have asked for a more beautiful cake for my friend's bday. Natalie was able to get me this cake with short notice and she replicated the picture I sent perfectly. Best of all the cake was insanely delicious! I will be coming back for more!"</blockquote>
         <cite>— Putia</cite>
       </div>
 
       <div class="test-item">
-        <div class="test-photo"><div class="img-ph" style="min-height:170px;"><svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg><span>Wedding dress cake</span></div></div>
+        <div class="test-photo"><img src="images/wedding_dress.png" alt="Dress Cake"></div>
         <blockquote>"Natalie makes the most elegant and creative cakes! She made a NY rangers groom's cake for our rehearsal dinner and the cake for my bridal shower. She also made the cake for my dad's 60th birthday party. All three came out fantastic!"</blockquote>
         <cite>— Patricia</cite>
       </div>
 
       <div class="test-item">
-        <div class="test-photo"><div class="img-ph" style="min-height:170px;"><svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg><span>Thomas train cake</span></div></div>
+        <div class="test-photo"><img src="images/thomas_train.png" alt="Thomas the Train Cake"></div>
         <blockquote>"Natalie made my 3 yr old the most amazing Thomas train birthday cake. She was very patient, took my ideas and made it exactly as I had imagined! And it tasted just right — moist and melted in my mouth!"</blockquote>
         <cite>— Deepti</cite>
       </div>
 
       <div class="test-item">
-        <div class="test-photo"><div class="img-ph" style="min-height:170px;"><svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg><span>Stars / moon cake</span></div></div>
-        <blockquote>"This is the first review I have ever written but I felt that Natalie Rose was more than deserving of one. She was so attentive over text with any questions I had. My mom absolutely loved her Mother's Day cake haha. SUCH a hit!"</blockquote>
-        <cite>— Marley</cite>
+        <div class="test-photo"><img src="images/dog_cake.png" alt="Dog Dugout Cake"></div>
+        <blockquote>"Natalie Rose is incredible! We contacted The Cakery for my daughter's birthday requesting a rather elaborate custom cake. She delivered on all points: it was as beautiful as it was delicious! And the cake pops were a huge success as well. The Cakery is reliable, talented, very easy to work with and creates edible art! We plan to use them for all of our special occasions moving forward!"</blockquote>
+        <cite>— Kate</cite>
       </div>
 
       <div class="test-item">
-        <div class="test-photo"><div class="img-ph" style="min-height:170px;"><svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg><span>Cinderella slipper cake</span></div></div>
+        <div class="test-photo"><img src="images/slipper.png" alt="Cinderella Slipper Cake"></div>
         <blockquote>"Natalie Rose did it again! A spectacular Cinderella slipper cake on a cushion. My daughter was in raptures. I wish we had some more birthdays coming up!"</blockquote>
         <cite>— Virginia</cite>
       </div>
@@ -667,20 +670,14 @@
 <!-- FOOTER -->
 <footer>
   <div class="social-row">
-    <a href="https://www.yelp.com/biz/natalie-rose-cakes-stamford?osq=natalie+rose+cakes" class="social-link s-yelp" target="_blank" rel="noopener noreferrer" title="Yelp">
-      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14.5l-3-1.1c-.3-.11-.41-.47-.22-.73l1.97-2.63c.19-.25.57-.25.76.02l.7 1c.08.12.09.28.02.4l-.54.97.57 1.4c.11.27-.04.56-.31.54l-.95.13zm3.9.9c-.07.29-.39.46-.66.33l-2.68-1.27c-.28-.13-.37-.47-.2-.72l2.41-3.36c.18-.25.52-.27.74-.05l.5.5c.1.1.14.25.09.39l-.38 1.05.08 1.52c.02.3-.25.53-.54.48l-.01-.01.65 1.14zm.88-7.2l-3.36-.5c-.31-.05-.5-.37-.38-.67l.61-1.47c.12-.29.46-.41.73-.25l2.78 1.58c.27.16.33.52.11.75l-.49.56z"/></svg>
+    <a href="https://www.yelp.com/biz/natalie-rose-cakes-stamford?osq=natalie+rose+cakes" class="social-link" target="_blank" rel="noopener noreferrer" title="Yelp">
+      <img src="images/yelp-icon.svg" alt="Yelp">
     </a>
-    <a href="https://www.facebook.com/natalierosecakes/" class="social-link s-fb" target="_blank" rel="noopener noreferrer" title="Facebook">
-      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+    <a href="https://www.facebook.com/natalierosecakes/" class="social-link" target="_blank" rel="noopener noreferrer" title="Facebook">
+      <img src="images/facebook-icon.ico" alt="Facebook">
     </a>
-    <a href="https://www.instagram.com/natalierosecakes/" class="social-link s-ig" target="_blank" rel="noopener noreferrer" title="Instagram">
-      <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z" fill="none" stroke="#fff" stroke-width="2"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5" stroke="#fff" stroke-width="2"/></svg>
-    </a>
-    <a href="https://stamfordmoms.com/resources/childrens-parties/" class="social-link social-logo" target="_blank" rel="noopener noreferrer" title="Stamford Moms Network">
-      <img src="images/stamford-moms-logo.png" alt="Stamford Moms Network">
-    </a>
-    <a href="https://www.icingsmiles.org/" class="social-link social-logo" target="_blank" rel="noopener noreferrer" title="Icing Smiles">
-      <img src="images/icing-smiles-logo.png" alt="Icing Smiles">
+    <a href="https://www.instagram.com/natalierosecakes/" class="social-link" target="_blank" rel="noopener noreferrer" title="Instagram">
+      <img src="images/instagram-icon.webp" alt="Instagram">
     </a>
   </div>
   <p>© 2026 Natalie Rose Cake Boutique &nbsp;·&nbsp; Norwalk, CT &nbsp;·&nbsp; <a href="tel:2036679693">203-667-9693</a> &nbsp;·&nbsp; <a href="mailto:Orders@NatalieRoseCakes.com">Orders@NatalieRoseCakes.com</a></p>
