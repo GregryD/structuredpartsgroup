@@ -209,13 +209,6 @@
     .mini-grid-item img { width:100%; height:100%; object-fit:cover; display:block; }
 
     /* ════════════════════════════
-       PAGE: CLASSES
-    ════════════════════════════ */
-    .classes-wrap { max-width:700px; margin:0 auto; padding:4rem 2rem; text-align:center; }
-    .classes-wrap h2 { font-family:'Josefin Sans',sans-serif; font-size:1.6rem; font-weight:300; color:var(--navy); margin-bottom:1rem; letter-spacing:0.06em; }
-    .classes-wrap p { font-size:0.9rem; color:var(--mid); margin-bottom:1.5rem; }
-
-    /* ════════════════════════════
        PAGE: REQUEST QUOTE
     ════════════════════════════ */
     .quote-wrap { max-width:900px; margin:0 auto; padding:3.5rem 2rem; display:grid; grid-template-columns:1fr 2fr; gap:4rem; align-items:start; }
@@ -237,6 +230,8 @@
     }
     .form-group input:focus, .form-group textarea:focus, .form-group select:focus { border-color:var(--navy); }
     .form-group textarea { resize:vertical; min-height:110px; }
+    .form-group input[type="file"] { padding:0.45rem 0; font-size:0.82rem; cursor:pointer; }
+    .form-note { font-size:0.78rem; color:var(--mid); font-style:italic; margin-top:0.15rem; }
     .btn-navy { padding:0.8rem 2.2rem; background:var(--navy); color:var(--white); font-family:'Josefin Sans',sans-serif; font-size:0.7rem; letter-spacing:0.15em; text-transform:uppercase; border:none; cursor:pointer; transition:background 0.2s; border-radius:0; }
     .btn-navy:hover { background:var(--gold); }
 
@@ -280,7 +275,6 @@
       <li><a onclick="showPage('home')" class="active" id="nav-home">Home</a></li>
       <li><a onclick="showPage('about')" id="nav-about">About Us</a></li>
       <li><a onclick="showPage('menu')" id="nav-menu">Menu &amp; Pricing</a></li>
-      <li><a onclick="showPage('classes')" id="nav-classes">Classes &amp; Events</a></li>
       <li><a onclick="showPage('photos')" id="nav-photos">Photos</a></li>
       <li><a onclick="showPage('quote')" id="nav-quote">Request Quote</a></li>
     </ul>
@@ -530,17 +524,6 @@
   </div>
 </div><!-- /page-menu -->
 
-<!-- ═══════════════ PAGE: CLASSES & EVENTS ═══════════════ -->
-<div id="page-classes" class="page">
-  <div class="classes-wrap">
-    <h2>Classes &amp; Events</h2>
-    <p>Details about upcoming cake decorating classes and events will be posted here soon. Check back or contact Natalie directly for information on scheduled classes.</p>
-    <p><a href="mailto:Orders@NatalieRoseCakes.com" style="color:var(--navy);font-weight:600;">Orders@NatalieRoseCakes.com</a></p>
-    <br/>
-    <button class="btn-navy" onclick="showPage('quote')">Get in Touch</button>
-  </div>
-</div><!-- /page-classes -->
-
 <!-- ═══════════════ PAGE: PHOTOS ═══════════════ -->
 <div id="page-photos" class="page">
   <div class="photos-wrap">
@@ -637,22 +620,23 @@
         <li>Event date</li>
         <li>Type of dessert</li>
         <li>Serving amount</li>
-        <li>Photos/Details</li>
+        <li>Photos/Details (attach photos below)</li>
       </ul>
       <br/>
       <!-- Or use the form below for convenience -->
-      <form class="contact-form" name="quote" method="POST" action="https://formspree.io/f/YOUR_CODE_HERE" netlify>
-        <input type="hidden" name="form-name" value="quote" />
+      <form class="contact-form" action="https://formsubmit.co/Orders@NatalieRoseCakes.com" method="POST" enctype="multipart/form-data">
+        <input type="hidden" name="_subject" value="New cake order request — Natalie Rose website">
+        <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
         <div class="form-row">
           <div class="form-group"><label for="q-name">Name</label><input type="text" id="q-name" name="name" placeholder="Jane Smith" required /></div>
           <div class="form-group"><label for="q-phone">Phone Number</label><input type="tel" id="q-phone" name="phone" placeholder="(203) 000-0000" /></div>
         </div>
         <div class="form-row">
           <div class="form-group"><label for="q-email">Email</label><input type="email" id="q-email" name="email" placeholder="jane@email.com" required /></div>
-          <div class="form-group"><label for="q-date">Event Date</label><input type="date" id="q-date" name="date" /></div>
+          <div class="form-group"><label for="q-date">Event Date</label><input type="date" id="q-date" name="event_date" /></div>
         </div>
         <div class="form-group"><label for="q-type">Type of Dessert</label>
-          <select id="q-type" name="type">
+          <select id="q-type" name="dessert_type">
             <option value="">Select...</option>
             <option>Custom Cake</option><option>Cupcakes</option>
             <option>Cookies</option><option>Cake Pops</option>
@@ -660,7 +644,8 @@
           </select>
         </div>
         <div class="form-group"><label for="q-servings">Serving Amount</label><input type="text" id="q-servings" name="servings" placeholder="e.g. 30 people" /></div>
-        <div class="form-group"><label for="q-details">Photos / Details</label><textarea id="q-details" name="details" placeholder="Describe your vision — theme, colours, flavors, any inspiration photos you can share..."></textarea></div>
+        <div class="form-group"><label for="q-details">Details</label><textarea id="q-details" name="details" placeholder="Describe your vision — theme, colours, flavors, serving style..."></textarea></div>
+        <div class="form-group"><label for="q-photos">Inspiration Photos</label><input type="file" id="q-photos" name="attachment" accept="image/*" multiple /><p class="form-note">Optional — attach one or more reference photos (JPG, PNG, etc.)</p></div>
         <button type="submit" class="btn-navy">Send Request</button>
       </form>
     </div>
@@ -685,7 +670,7 @@
 
 <script>
   // Page navigation
-  const pages = ['home','about','menu','classes','photos','quote'];
+  const pages = ['home','about','menu','photos','quote'];
   function showPage(id) {
     pages.forEach(p => {
       document.getElementById('page-'+p).classList.toggle('active', p===id);
