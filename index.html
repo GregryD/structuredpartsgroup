@@ -26,12 +26,7 @@
     /* ── TOP BAR ── */
     .top-bar { background: var(--white); padding: 0.5rem 1.5rem; border-bottom: 1px solid var(--border); }
     .nut-free-badge {
-      width: 54px; height: 54px; border-radius: 50%;
-      border: 3px solid #222; display: inline-flex; flex-direction: column;
-      align-items: center; justify-content: center;
-      font-family: 'Josefin Sans', sans-serif; font-size: 0.42rem;
-      font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase;
-      color: #222; line-height: 1.3; text-align: center;
+      width: 54px; height: 54px; display: inline-block;
     }
     .nut-free-badge .big { font-size: 0.62rem; }
 
@@ -39,8 +34,10 @@
     nav { background: var(--white); border-bottom: 1px solid var(--border); }
     .nav-inner { max-width: 1100px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; padding: 0 1rem; }
     .nav-logo { padding: 0.75rem 0 0.3rem; text-align: center; cursor: pointer; }
+    .nav-logo img { max-width: 280px; height: auto; display: block; margin: 0 auto; }
     .nav-logo .script { font-family: 'Great Vibes', cursive; font-size: 2.8rem; color: var(--gold); line-height: 1; display: block; }
     .nav-logo .subtitle { font-family: 'Josefin Sans', sans-serif; font-size: 0.58rem; letter-spacing: 0.35em; text-transform: uppercase; color: var(--navy); display: block; margin-top: 0.1rem; }
+    .nut-free-badge img { width: 54px; height: 54px; object-fit: contain; display: block; }
     .nav-links { display: flex; list-style: none; border-top: 1px solid var(--border); width: 100%; justify-content: center; flex-wrap: wrap; }
     .nav-links li a {
       display: block; padding: 0.6rem 1rem;
@@ -248,15 +245,14 @@
 
 <!-- TOP BAR -->
 <div class="top-bar">
-  <div class="nut-free-badge"><span class="big">NUT</span><span>FREE</span></div>
+  <div class="nut-free-badge"><img src="images/images.png" alt="Nut free"></div>
 </div>
 
 <!-- NAV -->
 <nav>
   <div class="nav-inner">
     <div class="nav-logo" onclick="showPage('home')">
-      <span class="script">natalie rose</span>
-      <span class="subtitle">Cake Boutique</span>
+      <img src="images/main%20logo.png" alt="Natalie Rose Cake Boutique">
     </div>
     <ul class="nav-links">
       <li><a onclick="showPage('home')" class="active" id="nav-home">Home</a></li>
@@ -278,10 +274,9 @@
   </div>
 
   <div class="photo-grid">
-    <!-- REPLACE each .img-ph with: <img src="cake1.jpg" alt="..." style="width:100%;height:100%;object-fit:cover;"> -->
-    <div class="photo-grid-item"><div class="img-ph"><svg width="36" height="36" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg><span>Hero cake photo 1</span></div></div>
-    <div class="photo-grid-item"><div class="img-ph"><svg width="36" height="36" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg><span>Hero cake photo 2</span></div></div>
-    <div class="photo-grid-item"><div class="img-ph"><svg width="36" height="36" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg><span>Hero cake photo 3</span></div></div>
+    <div class="photo-grid-item"><img src="images/Hero%20Cake%20Photo1.png" alt="Custom decorated cake by Natalie Rose"></div>
+    <div class="photo-grid-item"><img src="images/Hero%20Cake%20Photo2.png" alt="Celebration cake by Natalie Rose"></div>
+    <div class="photo-grid-item"><img src="images/Hero%20Cake%20Photo3.png" alt="Special occasion cake by Natalie Rose"></div>
   </div>
 
   <div class="welcome">
@@ -296,7 +291,7 @@
     <div class="test-grid">
 
       <div class="test-item">
-        <div class="test-photo"><div class="img-ph" style="min-height:170px;"><svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg><span>Tiffany box cake</span></div></div>
+        <div class="test-photo"><img src="images/Tiffany%20Box%20Cake.png" alt="Tiffany box birthday cake"></div>
         <blockquote>"I can't say enough great things about my experience with The Cakery. I wanted the cake to be a giant Tiffany Box. The cake was an absolute sensation both in appearance &amp; taste. The price was definitely fair. We're both looking forward to our next Cakery cake."</blockquote>
         <cite>— Marysue</cite>
       </div>
