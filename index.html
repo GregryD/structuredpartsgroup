@@ -195,6 +195,31 @@
       text-align:center; padding:2rem 1rem; background:var(--light);
       border:1px dashed var(--border);
     }
+    .gallery-preview-note {
+      font-size:0.82rem; color:var(--mid); font-style:italic;
+      text-align:center; margin-top:0.75rem;
+    }
+    .gallery-preview-footer {
+      text-align:center; margin-top:1.5rem;
+    }
+    .gallery-full-header {
+      margin-bottom:2rem;
+    }
+    .gallery-back {
+      display:inline-block; margin-bottom:1rem; padding:0;
+      background:none; border:none; cursor:pointer;
+      font-family:'Josefin Sans',sans-serif; font-size:0.68rem;
+      letter-spacing:0.12em; text-transform:uppercase; color:var(--gold);
+      text-decoration:none;
+    }
+    .gallery-back:hover { color:var(--navy); }
+    .gallery-full-header h1 {
+      font-family:'Josefin Sans',sans-serif; font-size:1.5rem; font-weight:300;
+      color:var(--navy); letter-spacing:0.05em;
+    }
+    .gallery-full-header p {
+      font-size:0.88rem; color:var(--mid); margin-top:0.35rem;
+    }
 
     /* ════════════════════════════
        PAGE: REQUEST QUOTE
@@ -516,6 +541,18 @@
   <div class="photos-wrap" id="photos-wrap"></div>
 </div><!-- /page-photos -->
 
+<!-- ═══════════════ PAGE: FULL GALLERY ═══════════════ -->
+<div id="page-gallery" class="page">
+  <div class="photos-wrap">
+    <div class="gallery-full-header">
+      <button type="button" class="gallery-back" onclick="showPage('photos')">← Back to Photos</button>
+      <h1 id="gallery-full-title"></h1>
+      <p id="gallery-full-count"></p>
+    </div>
+    <div id="gallery-full-grid" class="gallery-grid"></div>
+  </div>
+</div><!-- /page-gallery -->
+
 <!-- ═══════════════ PAGE: REQUEST QUOTE ═══════════════ -->
 <div id="page-quote" class="page">
   <div class="quote-wrap">
@@ -587,34 +624,83 @@
 
 <script>
   // Page navigation
-  const pages = ['home','about','menu','photos','quote'];
-  function showPage(id) {
+  const pages = ['home','about','menu','photos','gallery','quote'];
+  function showPage(id, options = {}) {
     pages.forEach(p => {
       document.getElementById('page-'+p).classList.toggle('active', p===id);
       const link = document.getElementById('nav-'+p);
-      if(link) link.classList.toggle('active', p===id);
+      if(link) link.classList.toggle('active', p===id || (p==='photos' && id==='gallery'));
     });
+    if (!options.skipHash && id !== 'gallery') {
+      history.replaceState(null, '', '#' + id);
+    }
     window.scrollTo({top:0, behavior:'smooth'});
   }
 
   // Gallery — auto-lists every image in each folder (via GitHub API after you push)
   const GITHUB = { owner: 'GregryD', repo: 'structuredpartsgroup' };
   const GALLERY_CATEGORIES = [
-    { title: 'Weddings', folder: 'images/gallery/weddings' },
-    { title: 'Children Birthday', folder: 'images/gallery/children-birthday' }
+    { title: 'Weddings', slug: 'weddings', folder: 'images/gallery/weddings' },
+    { title: 'Children Birthday', slug: 'children-birthday', folder: 'images/gallery/children-birthday' }
   ];
   const IMAGE_EXT = /\.(jpe?g|png|gif|webp|avif|bmp)$/i;
+  const PREVIEW_LIMIT = 12;
+  const galleryCache = new Map();
 
   async function listImagesInFolder(folder) {
+    if (galleryCache.has(folder)) return galleryCache.get(folder);
     const url = `https://api.github.com/repos/${GITHUB.owner}/${GITHUB.repo}/contents/${folder}`;
     const res = await fetch(url);
     if (res.status === 404) return [];
     if (!res.ok) throw new Error('GitHub API error');
     const items = await res.json();
     if (!Array.isArray(items)) return [];
-    return items
+    const files = items
       .filter(item => item.type === 'file' && IMAGE_EXT.test(item.name))
       .sort((a, b) => a.name.localeCompare(b.name, undefined, { numeric: true, sensitivity: 'base' }));
+    galleryCache.set(folder, files);
+    return files;
+  }
+
+  function buildImageGrid(files, folder, limit) {
+    const grid = document.createElement('div');
+    grid.className = 'gallery-grid';
+    const subset = limit ? files.slice(0, limit) : files;
+    subset.forEach((file, i) => {
+      const img = document.createElement('img');
+      img.src = folder + '/' + encodeURIComponent(file.name);
+      img.alt = 'Cake ' + (i + 1);
+      img.loading = 'lazy';
+      grid.appendChild(img);
+    });
+    return grid;
+  }
+
+  async function showFullGallery(slug) {
+    const cat = GALLERY_CATEGORIES.find(c => c.slug === slug);
+    if (!cat) return;
+
+    document.getElementById('gallery-full-title').textContent = cat.title;
+    const grid = document.getElementById('gallery-full-grid');
+    grid.innerHTML = '<p class="gallery-empty">Loading photos...</p>';
+
+    showPage('gallery', { skipHash: true });
+    history.replaceState(null, '', '#gallery/' + slug);
+
+    try {
+      const files = await listImagesInFolder(cat.folder);
+      grid.innerHTML = '';
+      document.getElementById('gallery-full-count').textContent =
+        files.length + ' photo' + (files.length === 1 ? '' : 's');
+      if (files.length === 0) {
+        grid.innerHTML = '<p class="gallery-empty">Photos coming soon.</p>';
+      } else {
+        grid.appendChild(buildImageGrid(files, cat.folder));
+      }
+    } catch (e) {
+      grid.innerHTML = '<p class="gallery-empty">Unable to load gallery.</p>';
+      document.getElementById('gallery-full-count').textContent = '';
+    }
   }
 
   async function loadGalleries() {
@@ -636,16 +722,25 @@
           empty.textContent = 'Photos coming soon.';
           section.appendChild(empty);
         } else {
-          const grid = document.createElement('div');
-          grid.className = 'gallery-grid';
-          files.forEach((file, i) => {
-            const img = document.createElement('img');
-            img.src = cat.folder + '/' + encodeURIComponent(file.name);
-            img.alt = 'Cake ' + (i + 1);
-            img.loading = 'lazy';
-            grid.appendChild(img);
-          });
-          section.appendChild(grid);
+          const previewCount = Math.min(files.length, PREVIEW_LIMIT);
+          section.appendChild(buildImageGrid(files, cat.folder, PREVIEW_LIMIT));
+
+          if (files.length > PREVIEW_LIMIT) {
+            const note = document.createElement('p');
+            note.className = 'gallery-preview-note';
+            note.textContent = 'Showing ' + previewCount + ' of ' + files.length + ' photos';
+            section.appendChild(note);
+
+            const footer = document.createElement('div');
+            footer.className = 'gallery-preview-footer';
+            const btn = document.createElement('button');
+            btn.type = 'button';
+            btn.className = 'btn-navy';
+            btn.textContent = 'View all ' + files.length + ' photos';
+            btn.onclick = () => showFullGallery(cat.slug);
+            footer.appendChild(btn);
+            section.appendChild(footer);
+          }
         }
         wrap.appendChild(section);
       }
@@ -653,7 +748,19 @@
       wrap.innerHTML = '<p class="gallery-empty">Unable to load gallery.</p>';
     }
   }
+
+  function routeFromHash() {
+    const hash = location.hash.slice(1);
+    if (hash.startsWith('gallery/')) {
+      showFullGallery(hash.slice('gallery/'.length));
+      return;
+    }
+    if (pages.includes(hash)) showPage(hash, { skipHash: true });
+  }
+
   loadGalleries();
+  routeFromHash();
+  window.addEventListener('hashchange', routeFromHash);
 </script>
 </body>
 </html>
